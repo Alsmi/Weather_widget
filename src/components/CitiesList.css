@@ -1,0 +1,8 @@
+.cities-list {
+	text-align: left;
+}
+
+.cities-list li+li {
+	margin-left: 2px;
+}
+
