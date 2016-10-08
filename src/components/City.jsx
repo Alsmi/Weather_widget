@@ -6,8 +6,8 @@ require ('./City.css');
 var City = React.createClass({
     render: function(){
         return  (
-                    <li className='city'>
-                        {this.props.name}
+                    <li className={this.props.isActive}>
+                        <span className="city-name" onClick={this.props.setActive}>{this.props.name}</span>
                         <span className="delete-city" onClick={this.props.onDelete}>×</span>
                     </li>
                 );                

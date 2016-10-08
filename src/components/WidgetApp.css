@@ -2,10 +2,6 @@
 	width: 80%;
     margin: 0 auto;
     text-align: center;
-}
-
-.field {
-	height: 400px;
-	border: 2px solid #ccc;
+    font-family: sans-serif;
 }
 

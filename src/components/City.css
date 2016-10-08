@@ -1,14 +1,29 @@
 .city {
 	display: inline-block;
-	border: 2px solid #ccc;
-	border-bottom:none;
-	margin-bottom: -2px;
-	border-radius: 5px 5px 0 0;
-	padding: 5px;
-	background: #fff;
+	position: relative;
+	cursor: pointer;
 }
 
 .delete-city {
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	right: 0;
 	margin: 0 5px;
 	cursor: pointer;
+}
+
+.city-name {
+	display: inline-block;
+	padding: 7px 20px 7px 20px;
+	border: 2px solid #ccc;
+	border-bottom: none;
+	border-radius: 7px 7px 0 0;
+}
+
+.active .city-name{
+	cursor: pointer;
+	padding: 7px 30px 9px 30px;
+	margin-bottom: -4px;
+	background-color: #efefef;
 }

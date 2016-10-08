@@ -14,20 +14,24 @@ var CityEditor = React.createClass({
     },
 
     handleCityAdd: function() {
-        var newCity = {
-            name: this.state.name,
-            id: Date.now(),
-        };
-
-        this.props.onCityAdd(newCity);
-        this.setState({ name: '' });
+        if (this.state.name !== '') {
+            var newCity = {
+                name: this.state.name,
+                id: Date.now()
+            }
+            this.props.onCityAdd(newCity);
+            this.setState({ name: '' });
+        }
+        else {
+            alert('Please, enter the name of the city!');
+        }
     },
 
     render: function() {
         return (
             <div className="city-editor">
                 <input type='text' className='search-city' value={this.state.name} onChange={this.handleNewCityName}/>
-                <input type='submit' className='add' value="Добавить" onClick={this.handleCityAdd}/>
+                <input type='submit' className='add' value="Add" onClick={this.handleCityAdd}/>
             </div>
         );
     }
