@@ -1,4 +1,5 @@
 var React = require ('react');
+var jQuery = require ('jquery');
 var CityEditor = require('./CityEditor.jsx');
 var Weather = require('./Weather.jsx');
 var CitiesList = require('./CitiesList.jsx');
@@ -23,7 +24,7 @@ var WidgetApp = React.createClass({
     getInitialState: function() {
         return {
             cities: CITIES,
-            weather: this.getCurrentWeather('Kharkiv'),                             //to do
+            weather: this.getCurrentWeather(CITIES[0]),                             
             selected: 1
         };
     },
@@ -31,7 +32,7 @@ var WidgetApp = React.createClass({
     componentDidMount: function() {
         var localCities = JSON.parse(localStorage.getItem('cities'));
         if (localCities) {
-            this.setState({ cities: localCities, selected: localCities[0].id, weather: this.getCurrentWeather(localCities[0]) });
+            this.setState({ cities: localCities, selected: localCities[0].id, weather: this.state.weather });
         }
     },
 
@@ -40,9 +41,19 @@ var WidgetApp = React.createClass({
     },
 
     getCurrentWeather: function(city) {
-        //get request to the weather server (URL + city.name + '&appid=' + APIKEY)  //to do
-        //return weather object                                                     //to do
-        return city.name                                                             
+        var url = 'http://'+URL + city.name + '&appid=' + APIKEY;
+        jQuery.ajax({
+            url: url,
+            dataType: 'json',
+            cache: false,
+            success: function(data) {
+                console.log(data);
+                this.setState({weather: JSON.stringify(data)});
+            }.bind(this),
+                error: function(xhr, status, err) {
+                console.error(this.props.url, status, err.toString());
+            }.bind(this)
+            });                                                              
     },
 
     handleCityDelete: function(city) {

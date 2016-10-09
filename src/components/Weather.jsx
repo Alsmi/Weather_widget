@@ -6,7 +6,7 @@ require ('./Weather.css');
 var Weather = React.createClass({
     render: function(){
         return  (
-                    <div className='field'>{this.props.data} weather condition...</div>
+                    <div className='field'>{this.props.data}</div>
                 );                
     }
 });
