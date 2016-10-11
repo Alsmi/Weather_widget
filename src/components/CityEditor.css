@@ -1,3 +1,7 @@
+.city-editor {
+	position: relative;
+}
+
 .search-city {
 	width: 70%;
 	margin: 10px;
@@ -13,4 +17,13 @@
 	border: 2px solid #ccc;
 	border-radius: 5px;
 
+}
+
+.search-result {
+	position: absolute;
+	background-color: #ced1d2;
+	z-index: 99;
+	left: 13%;
+	top: 90%;
+	width: 65%;
 }

@@ -1,0 +1,13 @@
+.city-select {
+	text-align: left;
+	cursor: pointer;
+}
+
+.city-select:hover {
+	background-color: #fff;
+}
+
+.city-select span {
+	display: inline-block;
+	padding: 5px;
+}
