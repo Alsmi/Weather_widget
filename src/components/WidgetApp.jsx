@@ -31,8 +31,9 @@ var WidgetApp = React.createClass({
 
     componentDidMount: function() {
         var localCities = JSON.parse(localStorage.getItem('cities'));
+        var localSelected = JSON.parse(localStorage.getItem('selected'));
         if (localCities) {
-            this.setState({ cities: localCities, selected: localCities[0].id, weather: this.state.weather });
+            this.setState({ cities: localCities, selected: localSelected, weather: this.state.weather });
         }
     },
 
@@ -41,7 +42,6 @@ var WidgetApp = React.createClass({
     },
 
     getWeatherData: function(city) {
-        console.log(CityEditor.onCityAdd);
         var url = APIURL + 'weather?q=' + city.name + '&units=metric&appid=' + APIKEY;
         jQuery.ajax({
             url: url,
@@ -49,6 +49,7 @@ var WidgetApp = React.createClass({
             cache: false,
             success: function(data) {
                 this.setState({weather: JSON.stringify(data)});
+                console.log(data);
             }.bind(this),
             error: function(xhr, status, err) {
                 console.error(this.props.url, status, err.toString());
@@ -105,7 +106,9 @@ var WidgetApp = React.createClass({
 
     _updateLocalStorage: function() {
         var cities = JSON.stringify(this.state.cities);
+        var selected = JSON.stringify(this.state.selected);
         localStorage.setItem('cities', cities);
+        localStorage.setItem('selected', selected);
     }
 });
 

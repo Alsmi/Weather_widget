@@ -13,15 +13,16 @@
 .add {
 	display: inline-block;
 	cursor: pointer;
-	padding: 5px 8px;
+	padding: 5px 20px;
 	border: 2px solid #ccc;
 	border-radius: 5px;
+	background-color: #fdd501;
 
 }
 
 .search-result {
 	position: absolute;
-	background-color: #ced1d2;
+	background-color: #afc5dc;
 	z-index: 99;
 	left: 13%;
 	top: 90%;

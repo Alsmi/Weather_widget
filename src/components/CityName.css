@@ -4,7 +4,8 @@
 }
 
 .city-select:hover {
-	background-color: #fff;
+	background-color: #fdd501;
+	padding-left: 10px;
 }
 
 .city-select span {

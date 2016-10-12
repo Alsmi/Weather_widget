@@ -1,6 +1,44 @@
+body {
+	background-color: lightblue;
+	min-height: 100vh;
+}
+
 .field {
-	height: 400px;
+	height: 480px;
 	border: 2px solid #ccc;
-	background-color: #efefef;
+	background-image: url(../../public/img/weather.jpg);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
 	padding: 10px;
+	font: bold 18px/1.4 Arial,sans-serif;
+}
+
+.weather-widget-city-name {
+	font-size: 30px;
+	margin-top: 20px;
+	font-weight: bold;
+}
+
+.weather-widget-temperature {
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.weather-widget-items {
+	margin: 0 auto;
+    border: 1px solid black;
+    margin-top: 20px;
+}
+
+.weather-widget-items td{
+    border: 2px solid black;
+    padding: 5px 45px;	
+}
+
+.weather-widget-date {
+	margin-top: 15px;
+}
+
+.weather-widget-main {
+	margin-top: 10px;
 }
