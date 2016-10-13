@@ -22,10 +22,12 @@ var CITIES = [
 var WidgetApp = React.createClass({
 
     getInitialState: function() {
+        var city = this.currentCity(JSON.parse(localStorage.getItem('selected')));
+        console.log(localStorage.getItem('selected'));
         return {
             cities: CITIES,
-            weather: this.getWeatherData(CITIES[0]),                             
-            selected: 1
+            selected: 1,
+            weather: this.getWeatherData(city)                      
         };
     },
 
@@ -39,6 +41,21 @@ var WidgetApp = React.createClass({
 
     componentDidUpdate: function() {
         this._updateLocalStorage();
+    },
+
+    currentCity: function(id) {
+        var currCity;
+        if (id) {
+            var cities = JSON.parse(localStorage.getItem('cities'));
+            cities.map(function(city) {
+                if (id == city.id) {
+                    currCity = city;
+                }
+            }); 
+        } else {
+            currCity = CITIES[0];
+        }
+            return currCity;
     },
 
     getWeatherData: function(city) {
