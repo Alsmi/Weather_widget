@@ -7,7 +7,7 @@ body {
 	height: 480px;
 	border: 2px solid #ccc;
 	background-image: url(../../public/img/weather.jpg);
-	background-size: 100% 100%;
+	background-size: cover;
 	background-repeat: no-repeat;
 	padding: 10px;
 	font: bold 18px/1.4 Arial,sans-serif;
